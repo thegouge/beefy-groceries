@@ -1,0 +1,12 @@
+{
+  "name": "beefy-groceries",
+  "displayName": "beefy-groceries",
+  "expo": {
+    "name": "beefy-groceries",
+    "slug": "beefy-groceries",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
