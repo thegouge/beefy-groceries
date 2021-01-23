@@ -1,16 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 
-import { AddForm } from './src/components/AddForm';
-import { AppList } from './src/components/AppList';
+import { ToDoContainer } from './src/pages/ToDoContainer';
+
+import { ToDoProvider } from './src/context/ToDoContext';
 
 export default function App() {
 	return (
 		<PaperProvider>
 			<View style={styles.container}>
-				<StatusBar style="auto" />
+				<ToDoProvider>
+					<ToDoContainer />
+				</ToDoProvider>
 			</View>
 		</PaperProvider>
 	);

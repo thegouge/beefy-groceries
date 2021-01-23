@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, Button } from 'react-native';
+
+import { useToDoContext } from '../context/ToDoContext';
 
 export const AddForm = () => {
 	const [newItemText, setNewItemText] = useState('');
+
+	const { addToDo } = useToDoContext();
+
+	function handleSubmit() {
+		addToDo({ text: newItemText, id: Date.now() });
+
+		setNewItemText('');
+	}
+
 	return (
-		<View style={{ padding: 10 }}>
+		<View style={{ padding: 10 }} testID="add-form-view">
 			<TextInput
 				style={{ height: 40, width: 200 }}
 				placeholder="new item"
 				onChangeText={(text) => setNewItemText(text)}
-				defaultValue={newItemText}
+				value={newItemText}
 			/>
-			<Text style={{ padding: 10, width: 200 }}>{newItemText}</Text>
+			<Button title="submit" onPress={handleSubmit} />
 		</View>
 	);
 };

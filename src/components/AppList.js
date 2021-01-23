@@ -20,10 +20,10 @@ export const AppList = ({ dataList }) => {
 			<FlatList
 				data={dataList}
 				renderItem={({ item }) => {
-					const { text, key } = item;
+					const { text, id } = item;
 
 					return (
-						<Text style={styles.item} key={key}>
+						<Text style={styles.item} key={`todo-${id}`}>
 							{text}
 						</Text>
 					);
