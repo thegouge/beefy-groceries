@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
-
+import { Button, TextInput, View } from 'react-native';
 import { useToDoContext } from '../context/ToDoContext';
 
 export const AddForm = () => {
