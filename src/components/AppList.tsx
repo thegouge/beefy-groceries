@@ -1,16 +1,32 @@
 import React from 'react';
-import { ScrollView, Text } from 'react-native';
-import { Card } from 'react-native-paper';
-import { TodoItem } from '../lib/types';
+import { ScrollView, Text, View } from 'react-native';
+import { Card, Checkbox, Title } from 'react-native-paper';
+import { GroceryItem, TodoItem } from '../lib/types';
 
 interface Props {
-  dataList: TodoItem[]
+	dataList: TodoItem[] | GroceryItem[];
+	toggleChecked: (arg: number) => void;
 }
 
-export const AppList = ({dataList}: Props) => {
-
-  return (
-    <ScrollView>
-      {dataList.map((item: TodoItem) => (<Card key={`${item.id}`}><Text>{item.text}</Text></Card>))}
-    </ScrollView>  )
-}
+export const AppList = ({ dataList, toggleChecked }: Props) => {
+	return (
+		<ScrollView>
+			{dataList.map((item: TodoItem | GroceryItem) => (
+				<View>
+					<Card
+						key={`todo-${item.id}`}
+						onPress={() => {
+							toggleChecked(item.id);
+						}}>
+						<Card.Content>
+							<Title>
+								<Checkbox status={item.checked ? 'checked' : 'unchecked'} />
+								<Text>{item.text}</Text>
+							</Title>
+						</Card.Content>
+					</Card>
+				</View>
+			))}
+		</ScrollView>
+	);
+};
