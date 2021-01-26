@@ -2,11 +2,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { ThemeProvider } from 'react-native-elements';
 import { GroceryContainer } from './src/pages/GroceryContainer';
 import { ToDoContainer } from './src/pages/ToDoContainer';
-
-const theme = { ...DefaultTheme };
 
 const styles = StyleSheet.create({
 	container: {
@@ -21,7 +19,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
 	return (
-		<PaperProvider theme={theme}>
+		<ThemeProvider>
 			<NavigationContainer>
 				<Stack.Navigator initialRouteName="Groceries">
 					<Stack.Screen name="ToDo" component={ToDoContainer} />
@@ -30,6 +28,6 @@ export default function App() {
 						component={GroceryContainer}></Stack.Screen>
 				</Stack.Navigator>
 			</NavigationContainer>
-		</PaperProvider>
+		</ThemeProvider>
 	);
 }

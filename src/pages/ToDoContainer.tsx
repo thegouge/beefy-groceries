@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { Button } from 'react-native-paper';
+import { Button } from 'react-native-elements';
 import { AddForm } from '../components/AddForm';
 import { AppList } from '../components/AppList';
 import { TodoItem } from '../lib/types';
@@ -33,7 +33,7 @@ export const ToDoContainer = ({ navigation }: Props) => {
 
 	return (
 		<View>
-			<Button onPress={() => navigation.navigate('Groceries')} mode="contained">
+			<Button onPress={() => navigation.navigate('Groceries')}>
 				To Groceries
 			</Button>
 			<AddForm addFunction={addItem} />

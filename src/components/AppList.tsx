@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, Text, View } from 'react-native';
-import { Card, Checkbox, Title } from 'react-native-paper';
+import { Card, Checkbox, Title } from 'react-native-elements';
 import { GroceryItem, TodoItem } from '../lib/types';
 
 interface Props {

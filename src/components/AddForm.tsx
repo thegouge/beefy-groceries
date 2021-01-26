@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { Button, TextInput } from 'react-native-paper';
+import { Button, Input } from 'react-native-elements';
 
 interface Props {
 	addFunction: (arg: string) => void;
@@ -19,13 +19,13 @@ export const AddForm = ({ addFunction }: Props) => {
 
 	return (
 		<View style={{ padding: 5 }} testID="add-form-view">
-			<TextInput
+			<Input
 				style={{ margin: 5 }}
 				label="new item"
 				onChangeText={(text: string) => setNewItemText(text)}
 				value={newItemText}
 			/>
-			<Button onPress={handleSubmit} mode="contained" style={{ margin: 10 }}>
+			<Button onPress={handleSubmit} style={{ margin: 10 }}>
 				Submit
 			</Button>
 		</View>
