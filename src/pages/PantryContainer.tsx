@@ -2,7 +2,6 @@ import { NavigationProp } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Button } from 'react-native-elements';
-import { AddForm } from '../components/AddForm';
 import { AppList } from '../components/AppList';
 import { GroceryItem } from '../lib/types';
 
@@ -38,8 +37,11 @@ export const PantryContainer = ({ navigation }: Props) => {
 				title="To Groceries"
 				onPress={() => navigation.navigate('Groceries')}
 			/>
-			<AddForm addFunction={addItem} />
-			<AppList dataList={pantryList} toggleChecked={toggleItem} />
+			<AppList
+				dataList={pantryList}
+				toggleChecked={toggleItem}
+				addFunction={addItem}
+			/>
 		</View>
 	);
 };

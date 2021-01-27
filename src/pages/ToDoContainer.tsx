@@ -2,7 +2,6 @@ import { NavigationProp } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Button } from 'react-native-elements';
-import { AddForm } from '../components/AddForm';
 import { AppList } from '../components/AppList';
 import { TodoItem } from '../lib/types';
 
@@ -35,8 +34,11 @@ export const ToDoContainer = ({ navigation }: Props) => {
 	return (
 		<View>
 			<Button title="to Pantry" onPress={() => navigation.navigate('Pantry')} />
-			<AddForm addFunction={addItem} />
-			<AppList dataList={todoList} toggleChecked={toggleToDo} />
+			<AppList
+				dataList={todoList}
+				toggleChecked={toggleToDo}
+				addFunction={addItem}
+			/>
 		</View>
 	);
 };
