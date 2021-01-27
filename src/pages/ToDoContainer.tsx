@@ -1,3 +1,4 @@
+import { NavigationProp } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Button } from 'react-native-elements';
@@ -6,7 +7,7 @@ import { AppList } from '../components/AppList';
 import { TodoItem } from '../lib/types';
 
 interface Props {
-	navigation: any;
+	navigation: NavigationProp<any>;
 }
 
 export const ToDoContainer = ({ navigation }: Props) => {
@@ -33,9 +34,7 @@ export const ToDoContainer = ({ navigation }: Props) => {
 
 	return (
 		<View>
-			<Button onPress={() => navigation.navigate('Groceries')}>
-				To Groceries
-			</Button>
+			<Button title="to Pantry" onPress={() => navigation.navigate('Pantry')} />
 			<AddForm addFunction={addItem} />
 			<AppList dataList={todoList} toggleChecked={toggleToDo} />
 		</View>

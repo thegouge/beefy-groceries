@@ -9,20 +9,21 @@ import { GroceryItem } from '../lib/types';
 interface Props {
 	navigation: NavigationProp<any>;
 }
-export const GroceryContainer = ({ navigation }: Props) => {
-	const [groceryList, setGroceryList] = useState<GroceryItem[]>([]);
+
+export const PantryContainer = ({ navigation }: Props) => {
+	const [pantryList, setPantryList] = useState<GroceryItem[]>([]);
 
 	function addItem(itemToAdd: string) {
-		setGroceryList([
+		setPantryList([
 			{ id: Date.now(), text: itemToAdd, checked: false },
-			...groceryList,
+			...pantryList,
 		]);
 	}
 
-	function toggleGrocery(id: number) {
-		const indexToToggle = groceryList.findIndex((item) => item.id === id);
-		setGroceryList(
-			groceryList.map((item, index) => {
+	function toggleItem(id: number) {
+		const indexToToggle = pantryList.findIndex((item) => item.id === id);
+		setPantryList(
+			pantryList.map((item, index) => {
 				if (index === indexToToggle) {
 					return { ...item, checked: !item.checked };
 				}
@@ -33,9 +34,12 @@ export const GroceryContainer = ({ navigation }: Props) => {
 
 	return (
 		<View>
-			<Button title="To Todos" onPress={() => navigation.navigate('ToDo')} />
+			<Button
+				title="To Groceries"
+				onPress={() => navigation.navigate('Groceries')}
+			/>
 			<AddForm addFunction={addItem} />
-			<AppList dataList={groceryList} toggleChecked={toggleGrocery} />
+			<AppList dataList={pantryList} toggleChecked={toggleItem} />
 		</View>
 	);
 };

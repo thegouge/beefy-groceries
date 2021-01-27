@@ -4,6 +4,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import { GroceryContainer } from './src/pages/GroceryContainer';
+import { PantryContainer } from './src/pages/PantryContainer';
 import { ToDoContainer } from './src/pages/ToDoContainer';
 
 const styles = StyleSheet.create({
@@ -23,9 +24,8 @@ export default function App() {
 			<NavigationContainer>
 				<Stack.Navigator initialRouteName="Groceries">
 					<Stack.Screen name="ToDo" component={ToDoContainer} />
-					<Stack.Screen
-						name="Groceries"
-						component={GroceryContainer}></Stack.Screen>
+					<Stack.Screen name="Pantry" component={PantryContainer} />
+					<Stack.Screen name="Groceries" component={GroceryContainer} />
 				</Stack.Navigator>
 			</NavigationContainer>
 		</ThemeProvider>
