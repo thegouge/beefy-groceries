@@ -1,8 +1,8 @@
 import { NavigationProp } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { Button } from 'react-native-elements';
 import { AppList } from '../components/AppList';
+import { HeaderComponent } from '../components/HeaderComponent';
 import { TodoItem } from '../lib/types';
 
 interface Props {
@@ -33,7 +33,7 @@ export const ToDoContainer = ({ navigation }: Props) => {
 
 	return (
 		<View>
-			<Button title="to Pantry" onPress={() => navigation.navigate('Pantry')} />
+			<HeaderComponent />
 			<AppList
 				dataList={todoList}
 				toggleChecked={toggleToDo}
