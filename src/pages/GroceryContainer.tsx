@@ -13,7 +13,13 @@ export const GroceryContainer = ({ navigation }: Props) => {
 
 	function addItem(itemToAdd: string) {
 		setGroceryList([
-			{ id: Date.now(), text: itemToAdd, checked: false },
+			{
+				id: Date.now(),
+				text: itemToAdd,
+				checked: false,
+				qty: 1,
+				price: '0.00',
+			},
 			...groceryList,
 		]);
 	}
@@ -30,6 +36,17 @@ export const GroceryContainer = ({ navigation }: Props) => {
 		);
 	}
 
+	function updateGroceryItem(newItem: GroceryItem) {
+		setGroceryList(
+			groceryList.map((item) => {
+				if (newItem.id === item.id) {
+					return newItem;
+				}
+				return item;
+			})
+		);
+	}
+
 	return (
 		<View>
 			<HeaderComponent />
@@ -37,6 +54,7 @@ export const GroceryContainer = ({ navigation }: Props) => {
 				dataList={groceryList}
 				toggleChecked={toggleGrocery}
 				addFunction={addItem}
+				updateFunction={updateGroceryItem}
 			/>
 		</View>
 	);

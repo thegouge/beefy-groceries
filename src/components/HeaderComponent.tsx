@@ -10,7 +10,7 @@ export const HeaderComponent = () => {
 	return (
 		<Header
 			leftComponent={{
-				icon: 'home',
+				icon: 'settings',
 				color: '#fff',
 				onPress: goSettings,
 			}}

@@ -32,7 +32,7 @@ export const PantryContainer = ({ navigation }: Props) => {
 		);
 	}
 
-	function goSettings() {}
+	function updatePantry(newItem: GroceryItem) {}
 
 	return (
 		<View>
@@ -41,6 +41,7 @@ export const PantryContainer = ({ navigation }: Props) => {
 				dataList={pantryList}
 				toggleChecked={toggleItem}
 				addFunction={addItem}
+				updateFunction={updatePantry}
 			/>
 		</View>
 	);

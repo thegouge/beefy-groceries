@@ -7,5 +7,7 @@ export type TodoItem = {
 export type GroceryItem = {
   id: number,
   text: string,
-  checked: boolean
+  checked: boolean,
+  price?: string,
+  qty?: number,
 }

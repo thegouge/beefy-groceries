@@ -31,6 +31,8 @@ export const ToDoContainer = ({ navigation }: Props) => {
 		);
 	}
 
+	function updateToDo(newItem: TodoItem) {}
+
 	return (
 		<View>
 			<HeaderComponent />
@@ -38,6 +40,7 @@ export const ToDoContainer = ({ navigation }: Props) => {
 				dataList={todoList}
 				toggleChecked={toggleToDo}
 				addFunction={addItem}
+				updateFunction={updateToDo}
 			/>
 		</View>
 	);
